@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF557F1B1AABCE6F00B004C6 /* MovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF557F1A1AABCE6F00B004C6 /* MovieData.swift */; };
 		FF7162071AA9326500E029F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7162061AA9326500E029F1 /* AppDelegate.swift */; };
 		FF7162091AA9326500E029F1 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7162081AA9326500E029F1 /* MasterViewController.swift */; };
 		FF71620B1AA9326500E029F1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF71620A1AA9326500E029F1 /* DetailViewController.swift */; };
@@ -14,6 +15,7 @@
 		FF7162101AA9326500E029F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF71620F1AA9326500E029F1 /* Images.xcassets */; };
 		FF7162131AA9326500E029F1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF7162111AA9326500E029F1 /* LaunchScreen.xib */; };
 		FF71621F1AA9326600E029F1 /* MDTesterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF71621E1AA9326600E029F1 /* MDTesterTests.swift */; };
+		FFECC1071ABCA9EC003CC64D /* MovieDataCD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FFECC1051ABCA9EC003CC64D /* MovieDataCD.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FF557F1A1AABCE6F00B004C6 /* MovieData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieData.swift; sourceTree = "<group>"; };
 		FF7162011AA9326500E029F1 /* MDTester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MDTester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF7162051AA9326500E029F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF7162061AA9326500E029F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +41,7 @@
 		FF7162181AA9326600E029F1 /* MDTesterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MDTesterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF71621D1AA9326600E029F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF71621E1AA9326600E029F1 /* MDTesterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDTesterTests.swift; sourceTree = "<group>"; };
+		FFECC1061ABCA9EC003CC64D /* MovieDataCD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MovieDataCD.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 				FF7162081AA9326500E029F1 /* MasterViewController.swift */,
 				FF71620A1AA9326500E029F1 /* DetailViewController.swift */,
 				FF71620C1AA9326500E029F1 /* Main.storyboard */,
+				FF557F1A1AABCE6F00B004C6 /* MovieData.swift */,
+				FFECC1051ABCA9EC003CC64D /* MovieDataCD.xcdatamodeld */,
 				FF71620F1AA9326500E029F1 /* Images.xcassets */,
 				FF7162111AA9326500E029F1 /* LaunchScreen.xib */,
 				FF7162041AA9326500E029F1 /* Supporting Files */,
@@ -215,6 +221,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF557F1B1AABCE6F00B004C6 /* MovieData.swift in Sources */,
+				FFECC1071ABCA9EC003CC64D /* MovieDataCD.xcdatamodeld in Sources */,
 				FF71620B1AA9326500E029F1 /* DetailViewController.swift in Sources */,
 				FF7162091AA9326500E029F1 /* MasterViewController.swift in Sources */,
 				FF7162071AA9326500E029F1 /* AppDelegate.swift in Sources */,
@@ -411,6 +419,7 @@
 				FF7162241AA9326600E029F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FF7162251AA9326600E029F1 /* Build configuration list for PBXNativeTarget "MDTesterTests" */ = {
 			isa = XCConfigurationList;
@@ -419,8 +428,22 @@
 				FF7162271AA9326600E029F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FFECC1051ABCA9EC003CC64D /* MovieDataCD.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FFECC1061ABCA9EC003CC64D /* MovieDataCD.xcdatamodel */,
+			);
+			currentVersion = FFECC1061ABCA9EC003CC64D /* MovieDataCD.xcdatamodel */;
+			path = MovieDataCD.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FF7161F91AA9326500E029F1 /* Project object */;
 }

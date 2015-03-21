@@ -7,13 +7,17 @@
 //
 
 import UIKit
+import CoreData
 
 class DetailViewController: UIViewController {
 
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
+    @IBOutlet weak var titleField: UITextField!
+    @IBOutlet weak var yearStepper: UIStepper!
+    @IBOutlet weak var yearLabel: UILabel!
+    
 
 
-    var detailItem: AnyObject? {
+    var detailItem: NSManagedObject? {
         didSet {
             // Update the view.
             self.configureView()
@@ -22,13 +26,28 @@ class DetailViewController: UIViewController {
 
     func configureView() {
         // Update the user interface for the detail item.
-        if let detail: AnyObject = self.detailItem {
-            if let label = self.detailDescriptionLabel {
-                label.text = detail.description
+        if let detail: NSManagedObject = self.detailItem {
+            if let tempTitleField = titleField
+            {
+                tempTitleField.text = detail.valueForKey("title") as String
+            }
+            if let tempYearStepper = yearStepper
+            {
+                tempYearStepper.value = Double(detail.valueForKey("date") as Int)
+            
+                if let tempYearLabel = yearLabel
+                {
+                    tempYearLabel.text = "\(Int(tempYearStepper.value))"
+                }
             }
         }
     }
 
+    
+    @IBAction func yearStepperChanged(sender: AnyObject) {
+        yearLabel.text = "\(Int(yearStepper.value))"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -40,6 +59,19 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        println("Preparing to head back: \(segue.identifier)")
+        if let detail = detailItem
+        {
+            if let tempTitleField = titleField
+            {
+                detail.setValue(tempTitleField.text, forKey: "title")
+            }
+            if let tempYearStepper = yearStepper
+            {
+                detail.setValue(Int(tempYearStepper.value), forKey: "date")
+            }
+        }
+    }
 }
 
