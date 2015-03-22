@@ -12,7 +12,7 @@ import CoreData
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var objects:Array<NSManagedObject> = []
+    var objects:Array<Movie> = []
     // create a variable to hold the saved object "scratchpad"
     var managedContext: NSManagedObjectContext?
 
@@ -36,7 +36,7 @@ class MasterViewController: UITableViewController {
         
         // submit your request and store the result in the optional "fetchedResults"
         var error: NSError?
-        let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as [NSManagedObject]?
+        let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as [Movie]?
         
         // if the optional is filled, store the contents in "objects."
         if let results = fetchedResults
@@ -85,11 +85,11 @@ class MasterViewController: UITableViewController {
         
         // create a new "Movie" entity in the "managedContext" and grab the data storage portion of it (the attributes) as "movieInfo"
         let theMovie = NSEntityDescription.entityForName("Movie", inManagedObjectContext: managedContext!)
-        let movieInfo = NSManagedObject(entity: theMovie!, insertIntoManagedObjectContext: managedContext!)
+        let movieInfo = Movie(entity: theMovie!, insertIntoManagedObjectContext: managedContext!)
         
         // give the "movieInfo" some starting values.
-        movieInfo.setValue("Untitled", forKey: "title")
-        movieInfo.setValue(2015, forKey: "date")
+        movieInfo.title = "Untitled"
+        movieInfo.date = 2015
         
         // add this object to the list of things to save and check to see whether anything has gone wrong....
         var error: NSError?
@@ -110,7 +110,7 @@ class MasterViewController: UITableViewController {
         println("Segue preparing in Master.")
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
-                let object = objects[indexPath.row] as NSManagedObject
+                let object = objects[indexPath.row] as Movie
                 let controller = (segue.destinationViewController as UINavigationController).topViewController as DetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
@@ -157,7 +157,7 @@ class MasterViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
 
         let object = objects[indexPath.row]
-        cell.textLabel!.text = object.valueForKey("title") as String?
+        cell.textLabel!.text = object.description
         return cell
     }
 

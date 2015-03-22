@@ -17,7 +17,7 @@ class DetailViewController: UIViewController {
     
 
 
-    var detailItem: NSManagedObject? {
+    var detailItem: Movie? {
         didSet {
             // Update the view.
             self.configureView()
@@ -26,14 +26,14 @@ class DetailViewController: UIViewController {
 
     func configureView() {
         // Update the user interface for the detail item.
-        if let detail: NSManagedObject = self.detailItem {
+        if let detail: Movie = self.detailItem {
             if let tempTitleField = titleField
             {
-                tempTitleField.text = detail.valueForKey("title") as String
+                tempTitleField.text = detail.title
             }
             if let tempYearStepper = yearStepper
             {
-                tempYearStepper.value = Double(detail.valueForKey("date") as Int)
+                tempYearStepper.value = Double(detail.date)
             
                 if let tempYearLabel = yearLabel
                 {
@@ -65,11 +65,11 @@ class DetailViewController: UIViewController {
         {
             if let tempTitleField = titleField
             {
-                detail.setValue(tempTitleField.text, forKey: "title")
+                detail.title = tempTitleField.text
             }
             if let tempYearStepper = yearStepper
             {
-                detail.setValue(Int(tempYearStepper.value), forKey: "date")
+                detail.date = Int16(tempYearStepper.value)
             }
         }
     }
